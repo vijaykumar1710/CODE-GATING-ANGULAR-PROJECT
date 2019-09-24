@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+
+<p>editor works!</p>
+<div>
+    <h3>Testing SIMIAN through EDITOR</h3>
+    <form (ngSubmit)="submit()" #SourceForm="ngForm" class="source-form">
+        <div class="form-group">
+            <textarea class="form-control" [rows]="5" name="sourcecode" pInputTextarea autoResize="autoResize" [(ngModel)]="sourceCode" #sourcecode="ngModel"></textarea>
+        </div>
+        <div class="pull-left">
+            <button type="submit" class="btn btn-primary" data-toggle="modal"  data-target="#exampleModalScrollable">submit</button>
+            <div class="backdrop" [ngStyle]="{'display':display}"></div>
+        </div>
+    </form>
+</div>
+
+<br>
+<!-- modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+        <!-- modal-dialog -->
+        <div class="modal-dialog" role="document">
+          <!-- modal-content -->
+          <div class="modal-content">
+            <!-- modal-header -->
+            <div class="modal-header">
+                    <h3>Analysis :</h3>
+                    
+              <button type="button" class="close" aria-label="Close" (click)="closeModalDialog()"><span aria-hidden="true">&times;</span></button>
+              <!-- <h4 class="modal-title">Login</h4> -->
+            </div>
+      
+        <!-- modal-body -->
+      <div class="modal-body">
+        <div class="container">
+            <table class="table table-striped">
+            <tr>
+            <th>No of Duplication</th>
+            <td>{{service.value}}</td>  
+            </tr>
+        
+        
+            <tr>
+            <th>threshold value</th>
+            <td>{{service.threshold}}</td> 
+            </tr>
+
+            <tr>
+                <th>Result</th>
+                <td>{{service.finalResult}}</td>
+            </tr>
+        
+            </table>
+        </div>
+        </div>
+        <!-- modal-footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" (click)="closeModalDialog()" >Close</button>
+        </div>
+     </div>
+   </div>     
+ </div>
+

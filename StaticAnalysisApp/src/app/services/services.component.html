@@ -1,0 +1,113 @@
+<p>services works!</p>
+<div class="alert alert-danger" role="alert" *ngIf = "hide">
+    Please Enter the requirements!!!!
+</div>
+<div class ="container">
+        <form #SourceForm="ngForm" class="source-form">
+            <div class="form-group">
+                <label>Source Path :</label>
+                <input type="text" class="form-control" name="sourcepath" [(ngModel)]="sourcePath" #sourcepath="ngModel">
+            </div>
+
+            <div class="progress-loader-gitrepo" *ngIf="gitload">
+                                <mat-progress-spinner [diameter]="40" [mode]="'indeterminate'">CLONING GIT</mat-progress-spinner>
+                            </div>
+                            <div class="check-pass" *ngIf="clonepass">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="check-fail" *ngIf="clonefail">
+                                <i class="fas fa-times"></i>
+                            </div> 
+            
+            <div class="pull-right">
+                <button type="submit" class="btn btn-primary" (click)="submit()">submit</button>
+            </div>
+        </form>
+</div>
+
+
+
+<div class ="container">
+    <form (ngSubmit)="set()" #SourceForm="ngForm" class="source-form">
+        <div class="pull-left">
+            <button type="set" class="btn btn-info" data-toggle="modal"  data-target="#exampleModalScrollable">SET THRESHOLD</button>
+            <div class="backdrop" [ngStyle]="{'display':display}"></div>
+        </div>
+    </form>
+</div>
+
+<br>
+<br>
+
+
+
+
+
+<!-- loader.component.html -->
+<div class="progress-loader"  *ngIf = "hideBar">
+    <mat-progress-spinner [mode]="'indeterminate'">
+    </mat-progress-spinner>
+</div>
+
+<div class="container" *ngIf = "hideShow" >
+    <h2>Analysis :</h2>            
+    <table class="table table-striped">
+     
+        <tr>
+          <th>No of Security warnings</th>
+          <td>{{allservice.securityIssuesCount}}</td>  
+        </tr>
+      
+      
+        <tr>
+          <th>No of warnings</th>
+          <td>{{allservice.noOfWarnings}}</td> 
+        </tr>
+
+        <tr>
+            <th>codeDuplication</th>
+            <td>{{allservice.codeDuplication}}</td>
+        </tr>
+
+        <tr>
+            <th>cyclomaticComplexity</th>
+            <td>{{allservice.cyclomaticComplexity}}</td>
+        </tr>
+
+        <tr>
+            <th>finalDecision</th>
+            <td>{{allservice.finalDecision}}</td>
+        </tr>
+
+    </table>
+</div>
+
+<!-- modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+    <!-- modal-dialog -->
+    <div class="modal-dialog" role="document">
+      <!-- modal-content -->
+      <div class="modal-content">
+        <!-- modal-header -->
+        <div class="modal-header">
+                <h3>SET THRESHOLD :</h3>
+                
+          <button type="button" class="close" aria-label="Close" (click)="closeModalDialog()"><span aria-hidden="true">&times;</span></button>
+          <!-- <h4 class="modal-title">Login</h4> -->
+        </div>
+  
+    <!-- modal-body -->
+  <div class="modal-body">
+    <div class="container">
+        
+    </div>
+    </div>
+    <!-- modal-footer -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="closeModalDialog()" >Close</button>
+    </div>
+ </div>
+</div>     
+</div>
+
+

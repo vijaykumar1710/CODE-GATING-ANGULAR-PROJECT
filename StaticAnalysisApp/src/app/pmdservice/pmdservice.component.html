@@ -1,0 +1,52 @@
+<p>pmdservice works!</p>
+<div class="alert alert-danger" role="alert" *ngIf = "hide">
+        Please Enter the requirements!!!!
+</div>
+<div class="container">
+    <form (ngSubmit)="submit()" #SourceForm="ngForm" class="source-form">
+        <div class="form-group">
+            <label>Source Path :</label>
+            <input type="text" class="form-control" name="sourcepath" [(ngModel)]="sourcePath" #sourcepath="ngModel">
+        </div>
+        <div class="pull-right">
+            <button type="submit" class="btn btn-primary" nbButton status="success">submit</button>
+        </div>
+    </form>
+                
+</div> 
+
+<!-- loader.component.html -->
+<div class="progress-loader"  *ngIf = "hideBar">
+        <mat-progress-spinner [mode]="'indeterminate'">
+        </mat-progress-spinner>
+</div>
+
+<!-- <ngx-spinner type="ball-clip-rotate-multiple" size="medium">
+        <p class="loading">Loading Results...</p>
+</ngx-spinner> -->
+
+<div class="container" *ngIf = "hideShow">
+        <h2>Analysis :</h2>            
+        <table class="table table-striped">
+         
+            <tr>
+              <th>No of warnings</th>
+              <td>{{service.value}}</td>  
+            </tr>
+          
+          
+            <tr>
+              <th>threshold value</th>
+              <td>{{service.threshold}}</td> 
+            </tr>
+
+            <tr>
+                <th>Result</th>
+                <td>{{service.finalResult}}</td>
+            </tr>
+         
+        </table>
+</div>
+
+
+

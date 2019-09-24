@@ -1,0 +1,63 @@
+<p>simianservice works!</p>
+
+<div class="alert alert-danger" role="alert" *ngIf = "hide">
+        Please Enter the requirements!!!!
+</div>
+
+<div class="alert alert-success" role="alert" *ngIf = "success">
+        Success!!!!
+</div>
+
+<div class="pull-right">
+        <a class="nav-link" href="#" routerLinkActive="active-class"  routerLink="/editor"><button type="set"  class="btn btn-warning btn-lg">TRY OUT THE EDITOR</button></a>
+</div><br>
+
+<div class="container">
+        <form  #SourceForm="ngForm" class="source-form">
+            <div class="form-group">
+                <label>Source Path :</label>
+                <input type="text" class="form-control" name="sourcepath" [(ngModel)]="sourcePath" #sourcepath="ngModel">
+            </div>
+            <div class="form-group">
+                (optional)<br>
+                    <label>No of Lines to be Considered for duplication :</label>
+                    <input type="text" class="form-control" name="lines" [(ngModel)]="NoOfLines" #Lines="ngModel">
+            </div><br>
+            <div class="pull-left">
+                    <button type="set" (click)="set()" class="btn btn-info">SET</button>
+            </div>
+            <div class="pull-right">
+                <button type="submit" class="btn btn-primary" (click)="submit()" >submit</button>
+            </div>
+        </form>
+                    
+</div> <br>
+
+    <!-- loader.component.html -->
+<div class="progress-loader"  *ngIf = "hideBar">
+        <mat-progress-spinner [mode]="'indeterminate'">
+        </mat-progress-spinner>
+</div>
+    
+    <div class="container" *ngIf = "hideShow">
+            <h2>Analysis :</h2>            
+            <table class="table table-striped">
+             
+                <tr>
+                  <th>No of Duplication</th>
+                  <td>{{service.value}}</td>  
+                </tr>
+              
+              
+                <tr>
+                  <th>threshold value</th>
+                  <td>{{service.threshold}}</td> 
+                </tr>
+    
+                <tr>
+                    <th>Result</th>
+                    <td>{{service.finalResult}}</td>
+                </tr>
+             
+            </table>
+    </div>

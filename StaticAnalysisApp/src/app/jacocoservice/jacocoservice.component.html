@@ -1,0 +1,59 @@
+<p>jacocoservice works!</p>
+<div class="alert alert-danger" role="alert" *ngIf = "hide">
+        Please Enter the requirements!!!!
+</div>
+<div class="container">
+    <form (ngSubmit)="submit()" #SourceForm="ngForm" class="source-form">
+        <div class="form-group">
+            <label>Source Path :</label>
+            <input type="text" class="form-control" name="sourcepath" [(ngModel)]="sourcePath" #sourcepath="ngModel">
+        </div>
+        <div class="pull-right">
+            <button type="submit" class="btn btn-primary">submit</button>
+        </div>
+    </form>
+                
+</div>
+
+<!-- loader.component.html -->
+<div class="progress-loader"  *ngIf = "hideBar">
+        <mat-progress-spinner [mode]="'indeterminate'">
+        </mat-progress-spinner>
+</div>
+
+
+<div class="container" *ngIf = "hideShow" >
+        <h2>Analysis :</h2>            
+        <table class="table table-striped">
+         
+            <tr>
+              <th>timeToRunTest</th>
+              <td>{{jacoco.timeToRunTest}}</td>  
+            </tr>
+          
+          
+            <tr>
+              <th>timeThreshold</th>
+              <td>{{jacoco.timeThreshold}}</td> 
+            </tr>
+
+            <tr>
+                <th>codeCoverage</th>
+                <td>{{jacoco.codeCoverage}}</td>
+            </tr>
+
+            <tr>
+                <th>coverage threshold</th>
+                <td>{{jacoco.threshold}}</td>
+            </tr>
+
+            <tr>
+                <th>finalResult</th>
+                <td>{{jacoco.finalResult}}</td>
+            </tr>
+            
+        </table>
+</div>
+
+
+

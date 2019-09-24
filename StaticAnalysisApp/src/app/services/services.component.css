@@ -1,0 +1,23 @@
+.progress-loader {
+    margin: 0 auto;
+    width: 100px;
+}
+
+.progress-loader-gitrepo {
+    float: right;
+    width: 24px;
+    height: 24px;
+    margin: 5px 10px 0px 0px;
+}
+
+.check-pass {
+    float: right;
+    color: rgb(29, 251, 0);
+    font-size: 1.8em;
+}
+
+.check-fail {
+    float: right;
+    color: rgb(255, 7, 7);
+    font-size: 1.8em;
+}
