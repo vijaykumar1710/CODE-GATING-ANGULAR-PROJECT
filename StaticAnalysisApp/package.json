@@ -23,7 +23,7 @@
     "@angular/router": "~8.2.4",
     "bootstrap": "^4.3.1",
     "bootstrap-toggle": "^2.2.2",
-    "d3": "^5.7.0",
+    "d3": "^7.6.1",
     "enhanced-resolve": "^4.1.0",
     "font-awesome": "^4.7.0",
     "ng2-nvd3": "^2.0.0",
